@@ -2,7 +2,9 @@
 #include <stdlib.h>
 
 
-int main()
+void sayHi(char name [], int age);
+
+int main(void)
 {
     sayHi ("Mike",40) ;
     sayHi ("Tom",23) ;
