@@ -8,10 +8,10 @@ int main()
     double num2;
 
     printf("Enter First Number: ");
-    scanf("%lf", &num1);
+    scanf("%d", &num1);
     printf("Enter second number:");
-    scanf("%lf", &num2);
+    scanf("%d", &num2);
 
-    printf("Answer: %f", num1+num2);
+    printf("Answer: %d", num1+num2);
     return 0;
 }
