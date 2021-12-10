@@ -5,7 +5,8 @@ int main(){
 
 
 
-    char grade = 'F';
+    char grade;
+    scanf("%c",&grade);
 
     switch(grade){
     case 'A' : 
