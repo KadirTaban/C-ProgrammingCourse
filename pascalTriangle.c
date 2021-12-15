@@ -1,24 +1,34 @@
 #include<stdio.h>
+
+
 int main()
 {
-  int n;
-  printf("Enter the number of rows: ");
-  scanf("%d",&n);
-  for(int row=1; row<=n; row++)
-  {
-    int a=1;
+  int noOfRows;
+  printf("Number of Rows to be printed \n");
+  scanf("%d",&noOfRows);
 
-    for(int s=1; s<=40-row; s++)
-    printf(" ");
+  
+  int row, colSpaces, colChar;
 
-    for(int i=1; i<=row; i++)
-    {
-      printf("%d ",a);
-      a = a * (row-i)/i;
+  for(row = 0 ; row<noOfRows; row++){
+
+    for (colSpaces = noOfRows - row; colSpaces>=1; colSpaces--){
+      printf(" ");
+
     }
+    int printChar = 1 ;
+    int num = row;
+    int den = 1;
+    for(colChar = 0 ; colChar <= row; colChar++){
+      printf("%d ",printChar);
+      printChar = printChar*num;
+      printChar = printChar/den;
+      num--;
+      den++;
 
+    }
     printf("\n");
+
   }
 
-  return 0;
 }
