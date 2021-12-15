@@ -9,6 +9,7 @@ int main(){
         for(int i = 0 ; terms>i ; i++){
             n = 1 + n*10;
 
+
             sum = sum + n;
 
     }
