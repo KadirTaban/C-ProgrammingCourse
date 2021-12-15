@@ -1,27 +1,24 @@
-#include <stdio.h>
+#include<stdio.h>
+int main()
+{
+  int n;
+  printf("Enter the number of rows: ");
+  scanf("%d",&n);
+  for(int row=1; row<=n; row++)
+  {
+    int a=1;
 
-int main(){
+    for(int s=1; s<=40-row; s++)
+    printf(" ");
 
-    int n;
-    printf("please given n ;")
+    for(int i=1; i<=row; i++)
+    {
+      printf("%d ",a);
+      a = a * (row-i)/i;
+    }
 
-    scanf("%d",n);
+    printf("\n");
+  }
 
-    for(int row = 0 ; n<row; row++)
-        {
-
-
-            int a ;
-
-            for(int i = 1;50-i=>0;i++)
-
-                printf(" ");
-            
-
-            for(int s = 0 ; s => row; s++)
-
-        }
-
-    
-    
+  return 0;
 }
