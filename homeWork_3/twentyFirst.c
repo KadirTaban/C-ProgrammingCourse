@@ -27,6 +27,7 @@ int main(){
         
 
         }
+        printf("%d",c);
 
         printf("%d is last digit, %d is first digit",array[0],array[c-2]);
 
