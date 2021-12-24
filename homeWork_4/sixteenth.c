@@ -1,31 +1,29 @@
-#include<stdio.h>  
 
+// 16.Write C code to find the sum of the series [ 1-X^2/2!+X^4/4!- .........].
 
-int main()    
-{    
-    float a,x,number,exponent,fac=1,sum = 1;
-    
-    printf("Enter a number: ");    
-    scanf("%f",&number);
+#include <stdio.h>
+#include <math.h>
 
-    printf("Enter an x: ");   
+int main()
+{
+    float x,n,p;
+    float fac = 1, sum = 1, m = -1;
+    printf("Enter the value of x\n");
     scanf("%f",&x);
-    a = x;
+    printf("enter number of terms\n");
+    scanf("%f",&n);
+    
+    for (float i = 2; i < n*2; i+=2)
+    {   
+        p = pow(x,i);
+        p = p*m;
+        fac = fac * i * (i-1);
+        sum = sum + (p/fac);
+        m = m * -1;
+    }
+    printf("The sum of the series = %f\n",sum);
 
-for(float i = 0; i < number; i = i + 2) 
-    {
-        x = a;
-
-        for(int c = 1 ; c<i ; c++){
-            x = x * a;
-        }
-        fac = fac*i;
-        sum = sum + (x/fac);
-
-    }     
-    printf("sum %f ",sum );
-
+    return 0;
+}
     
    
-return 0;  
-}
