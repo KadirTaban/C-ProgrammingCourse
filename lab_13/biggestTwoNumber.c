@@ -7,13 +7,16 @@ int biggest(int arr[]);
 int main(){
 
     int input[g],n1,n2;
+
     printf("enter 10 array elements \n");
+
+
     for(int i = 0 ; i<g; i++){
         scanf("%d",&input[i]);
     }
 
-    n1 = biggest(input);
-    n2 = biggest(input);
+        n1 = biggest(input);
+        n2 = biggest(input);
 
     printf("\n Biggest first two numbers = %d and %d \n",n1,n2);
 
@@ -37,6 +40,7 @@ int biggest(int arr[])
             arr[j] = 0;
 
         }
+        
     }
 
     return max;
