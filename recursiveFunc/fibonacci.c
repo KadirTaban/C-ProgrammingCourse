@@ -1,28 +1,24 @@
 #include <stdio.h>
 
-int fun(int a[], int n){
+int fibonacci(int i) {
 
-    int x;
-    if(n==1){
-        return a[0];
-    }
-    else{
-        x = fun3(a, n-1);
+   if(i == 0) {
+      return 0;
+   }
+	
+   if(i == 1) {
+      return 1;
+   }
+   return fibonacci(i-1) + fibonacci(i-2);
+}
 
-    }
-    if(x > a[n-1]){
-        return x;
+int  main() {
 
-    }
-    else{
-        return a[n-1];
-    }
-
-
-    int main(){
-        int arr[] = {12,10,300,50,100};
-        printf(" %d ", fun(arr, 5));
-        getchar();
-        return 0;
-    }
+   int i;
+	
+   for (i = 0; i < 10; i++) {
+      printf("%d\t\n", fibonacci(i));
+   }
+	
+   return 0;
 }
