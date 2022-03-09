@@ -4,5 +4,6 @@
     "files.associations": {
         "sstream": "c",
         "stdio.h": "c"
-    }
+    },
+    "nuxt.isNuxtApp": false
 }
