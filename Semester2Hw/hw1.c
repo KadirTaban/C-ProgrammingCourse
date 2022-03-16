@@ -8,7 +8,7 @@ int main(){
     srand(time(0));
 
     int firstDice,secondDice,sum,point;
-    printf("Zarlari salla");
+    printf("Zarlari salla\n");
     getchar();
     firstDice = (rand() % 6)+1;
     secondDice = (rand() % 6)+1;
@@ -29,11 +29,10 @@ int main(){
             point += sum;
         }
         while(sum != 7) {
-            printf("Roll the dice \n");
+            printf(" Roll the dice \n");
             getchar();
             firstDice = (rand() % 6)+1;
             secondDice = (rand() % 6)+1;
-            
             printf("First dice is %d",firstDice);
             printf("Secon dice is %d",secondDice);
             sum = firstDice + secondDice;
