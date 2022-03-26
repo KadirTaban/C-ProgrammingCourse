@@ -20,18 +20,23 @@ int main(){
         for(int j = 0 ; j<n; ++j){
             ptr[j] = j+1;
 
-        }
-        int m = n+1;
-        ptr = (int*)realloc(ptr, m);
-        ptr[] = 42;        
+        }  
         printf("The elements of the array are: \n");
 
         for(i=0; i<n;++i){
             printf("Adress: %d, Data:%10d \n", &ptr[i],ptr[i]);
         }
-
-        
-
-        return 0;
     }
+
+    ptr = (int*)realloc(ptr,n+1);
+    for(int j = 0 ; j<n; ++j){
+            ptr[j] = j+1;
+
+        }
+    ptr[n] = 42;
+    printf("\nThe elements of the array are: \n");
+
+        for(i=0; i<n+1;++i){
+            printf("Adress: %d, Data:%10d \n", &ptr[i],ptr[i]);
+        }
 }
