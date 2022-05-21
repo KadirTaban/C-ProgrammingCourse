@@ -1,27 +1,40 @@
 #include <stdio.h>
-
-typedef int TAMSAYI;
+#include <stdlib.h>
 
 
 typedef struct 
     {
-        unsigned int yil ;
-        char *tur;
-        unsigned int sure;
-        char *isim;
-    } Film;
+        unsigned int age ;
+        char *skill;
+        unsigned int rank;
+        char *name;
+    } Person;
 
 
     int main(){
 
-        Film film1;
-        film1.isim = "Kadir";
-        film1.yil = 2001;
-        film1.tur = "Biografi";
-        film1.sure = 132;
+        Person person1;
+        person1.name = "Kadir";
+        person1.age = 21;
+        person1.skill = "Programmer";
+        person1.rank = 132;
 
 
-        TAMSAYI yassiniri=18;
 
-        printf("Yas siniri %d olan %s filmi %d yapimi olup %s türünde %d süresiyle gişelerde! ",yassiniri,film1.isim,film1.yil,film1.tur,film1.sure);
+        printf("his/her name is %s rank %d age %d skill %s\n ",person1.name,person1.rank,person1.age,person1.skill);
+
+        Person person2 = {28,"Enteprenuer",234,"Omer"};
+
+
+        printf("his/her name is %s rank %d age %d skill %s\n ",person2.name,person2.rank,person2.age,person2.skill);
+
+        Person* person3;
+
+        person3 = (Person*)malloc(sizeof(Person));
+        (*person3).age = 26;
+        (*person3).name = "Nihal";
+        (*person3).skill = "Photographer";
+        (*person3).rank = 234;
+        printf("his/her name is %s rank %d age %d skill %s ",person3->name,person3->rank,person3->age,person3->skill);
+
     }       
