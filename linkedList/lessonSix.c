@@ -66,8 +66,8 @@ void printNode(Node* iter){
 
     printf("}\n");
 
+}
 
+void reverseList(Node* iter){
     
-
-
 }

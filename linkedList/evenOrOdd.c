@@ -11,6 +11,8 @@ typedef struct node node;
 void traverseList(node* head);
 node* addEnd(node *last, int num);
 node* addBeginning(node *head, int num);
+node* reverseList(node *head);
+
 int main(){
     int num;
     node *head,*last ;
@@ -39,7 +41,7 @@ int main(){
         }
         
     }
-    traverseList(head);
+    reverseList(head);
     return 0;
 
 }
@@ -77,4 +79,25 @@ node* addEnd(node *last,int num){
         p = p->next;
     }    
     printf("\n");   
+}
+
+node* reverseList(node* head){
+    struct node *prevNode, *curNode;
+
+    if(head != NULL){
+
+        prevNode = head;
+        curNode = head->next;
+        head = head->next;
+
+        prevNode->next = NULL;
+
+        while(head != NULL){
+            head = head-> next;
+            curNode -> next = prevNode; 
+        }
+
+        head = prevNode;
+        printf("SUCCESFULLY REVERSED LIST\n");
+    }
 }

@@ -25,8 +25,8 @@ int main(){
 
     while(loop) {
         printf("\n1-Create Patient File With 100 record\n2-Insert a new patient. \n");
-        printf("3-Find a patient by record.\n4-Update a patient record.\n");
-        printf("5-Delete a patient record\n 0-Exit\n");
+        printf("3-Find a patient by record.\n4-Delete a patient record.\n");
+        printf("5-Update a patient record\n 0-Exit\n");
         scanf("%d",&key);
 
         switch(key){
