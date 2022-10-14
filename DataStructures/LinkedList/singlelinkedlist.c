@@ -14,7 +14,7 @@ int main(){
     root = (node * )malloc(sizeof(node));
     root -> x = 10;
     root -> next = (node * )malloc(sizeof(node));
-    root -> x = 20;
+    root -> next -> x = 20;
     root -> next -> next = (node *) malloc(sizeof(node));
     root -> next -> next -> x = 30;
 
