@@ -1,2 +1,0 @@
-
-void kareAl(int sayi){
