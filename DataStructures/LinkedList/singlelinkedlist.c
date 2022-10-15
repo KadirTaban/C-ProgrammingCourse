@@ -17,14 +17,17 @@ int main(){
     root -> next -> x = 20;
     root -> next -> next = (node *) malloc(sizeof(node));
     root -> next -> next -> x = 30;
+    root -> next -> next ->next = NULL;
 
     node * iter;
 
     iter = root;
+    int i = 0 ;
 
-    printf("%d", iter->x);
-    iter = iter -> next;
-    printf("%d", iter->x);
-    iter = iter -> next;
-    printf("%d", iter->x);
+    while(iter ->next != NULL){
+        i++;
+        printf("%d inci eleman : %d \n ",i,iter -> x);
+        iter = iter -> next;
+
+    }
 }
