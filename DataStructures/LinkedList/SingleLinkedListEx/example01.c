@@ -6,6 +6,8 @@ struct node{
 };
 
 typedef struct node node;
+
+
 struct node *addfront(struct node *head, int key){
     struct node *temp;
     temp=(struct node*)malloc(sizeof(struct node));
@@ -76,28 +78,38 @@ int count_rec(node* head){
     
 }
 
+void deleteEnd(node* head){
+   struct node *temp = head;
+    while(temp->next->next!=NULL){
+        temp = temp-> next;
+    }
+    printf("%d was deleted.",temp->data);
+    temp->next = NULL;
+}
+
 int main(){
     struct node *head = NULL;
     int data, choice;
     while(1){
-        printf("\n 1-insert a node at front: \n");
+        printf("\n1-insert a node at front: \n");
         printf("2-insert a node at end: \n");
         printf("3-print the list \n");
         printf("4-print reverse \n");
         printf("5-print recursiven\n");
+        printf("6-delete\n");
         printf("10-exit");
         printf("enter your choice: ");
         scanf("%d",&choice);
         switch (choice)
         {
         case 1:
-            printf("enter the value to insert to the front");
+            printf("enter the value to insert to the front: ");
             scanf("%d",&data);
             head=addfront(head,data);
             break;
         
        case 2:
-            printf("enter the value to insert to the end");
+            printf("enter the value to insert to the end: ");
             scanf("%d",&data);
             head=addlast(head,data);
             break;
@@ -115,6 +127,10 @@ int main(){
             break;
 
         case 6:
+            deleteEnd(head);
+            break;
+
+        case 7:
             exit(1);
 
 

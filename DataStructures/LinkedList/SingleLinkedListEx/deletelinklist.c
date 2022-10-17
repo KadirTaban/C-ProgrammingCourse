@@ -7,11 +7,11 @@ struct n{
 typedef struct n node;
 
 void bastir(node *r){
-    wle(r!=NULL){
+    while(r!=NULL){
         printf("%d ",r->x);
         r=r->next;
  }
-    printf(" \n");hi
+    printf(" \n");
 
 }
 void ekle(node *r, int x){
