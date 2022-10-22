@@ -48,6 +48,30 @@ Node* AddLastNode(Node*head, int key){
     return head;
 }
 
+Node* DeleteNode(Node* head, int key){    
+    if(head == NULL){
+        printf("list is empty. \n");
+        return NULL;
+    }   
+
+    Node* temp = head;
+    if(head->data==key){
+        head=head->next;
+        head->prev = NULL;
+        free(temp);
+    }else{
+        while (temp->data != key)
+            temp = temp->next;
+        temp->prev->next = temp->next;
+        if(temp->next != NULL){
+            temp->next->prev = temp->prev;
+            free(temp);
+        }
+    }
+    return head;
+}
+
+
 
 int main(){
     Node *temp=NULL;
@@ -64,5 +88,10 @@ int main(){
     temp=AddFrontNode(temp,i);
     temp=AddLastNode(temp,r);
     readNode(temp);
+    printf("for delete: ");
+    scanf("%d",&number);
+    temp = DeleteNode(temp,number);
+    readNode(temp);
+
 }
 
