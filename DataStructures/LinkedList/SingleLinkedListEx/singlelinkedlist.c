@@ -26,7 +26,7 @@ int main(){
 
     while(iter != NULL){
         i++;
-        printf("%d inci eleman : %d \n ",i,iter -> x);
+        printf("%d inci eleman : %d \n",i,iter -> x);
         iter = iter -> next;
 
     }
