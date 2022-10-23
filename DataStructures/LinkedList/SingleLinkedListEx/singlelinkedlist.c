@@ -24,7 +24,7 @@ int main(){
     iter = root;
     int i = 0 ;
 
-    while(iter ->next != NULL){
+    while(iter != NULL){
         i++;
         printf("%d inci eleman : %d \n ",i,iter -> x);
         iter = iter -> next;
