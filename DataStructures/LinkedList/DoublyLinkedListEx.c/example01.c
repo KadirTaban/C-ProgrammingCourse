@@ -9,12 +9,30 @@ struct node{
 
 typedef struct node Node;
 
-void readNode(Node *temp){
-    while(temp!=NULL){
-        printf("%d ",temp->data);
-        temp=temp->next;
+void readNode(Node *head){
+    while(head!=NULL){
+        printf("%d ",head->data);
+        head=head->next;
  }
     printf(" \n");
+}
+
+void readReverse(Node *head){
+    if (head == NULL)
+    {
+        return ;
+    }
+    while (head->next != NULL)
+        {
+            head = head->next;
+        }
+
+    Node *last = head;
+    while (last != NULL)
+    {
+        printf("%d ", last->data);
+        last = last->prev;
+    }
 }
 
 Node* AddFrontNode(Node*head, int key){
@@ -22,13 +40,16 @@ Node* AddFrontNode(Node*head, int key){
     temp->next = head;
     temp->prev = NULL;
     temp->data = key;
+    if(head != NULL){
+        head->prev = temp;
 
-    head = temp;
-    return head;
+    }
+    return temp;
 }
 
 Node* AddLastNode(Node*head, int key){
     Node *temp = malloc(sizeof(Node));
+    Node *last;
     temp -> data = key;
     temp -> next = NULL;
 
@@ -36,62 +57,96 @@ Node* AddLastNode(Node*head, int key){
         temp->prev = NULL;
         head=temp;
     }else{
-        Node*last=head;
+        last = head;
         while (last->next != NULL)
         {
             last=last->next;
         }
         last->next=temp;
+        temp->prev = last;
         
     }
 
     return head;
 }
 
-Node* DeleteNode(Node* head, int key){    
+Node* DeleteNode(Node* head, int num){    
     if(head == NULL){
-        printf("list is empty. \n");
-        return NULL;
-    }   
-
+        return head;
+    }
     Node* temp = head;
-    if(head->data==key){
+    if(head->data == num){
         head=head->next;
-        head->prev = NULL;
+        head->prev=NULL;
         free(temp);
     }else{
-        while (temp->data != key)
-            temp = temp->next;
+        while (temp!=NULL && temp->data != num){
+            printf("%d",temp->data);
+            temp=temp->next;
+        }
+        
+
         temp->prev->next = temp->next;
-        if(temp->next != NULL){
+        if(temp->next!=NULL){
             temp->next->prev = temp->prev;
-            free(temp);
+        }
+        free(temp);
+    }
+
+    return head;
+   /* if (head == NULL)
+        return head;
+
+    Node *temp = head, *last;
+    
+    if (head->data == num)
+    {
+        head = head->next;
+    
+        head->prev = NULL;
+    
+        free(temp);
+    }else{
+        while (temp != NULL)
+        {
+            if (temp->data == num)
+            {
+                temp->prev->next = temp->next;
+                if (temp->next != NULL) //if it is from tail, passed this
+                {
+                    temp->next->prev = temp->prev;
+                }
+                free(temp);
+                break;
+            }
+            temp = temp->next;
         }
     }
-    return head;
+    return head; */
 }
-
 
 
 int main(){
     Node *temp=NULL;
-    int number,k,a,d,i,r;
+    int number,k,a,d;
     scanf("%d", &k);
     scanf("%d", &a);
     scanf("%d", &d);
-    scanf("%d", &i);
-    scanf("%d", &r);
 
     temp=AddFrontNode(temp,k);
     temp=AddFrontNode(temp,a);
-    temp=AddFrontNode(temp,d);
-    temp=AddFrontNode(temp,i);
-    temp=AddLastNode(temp,r);
+    temp=AddLastNode(temp,d);
+  
     readNode(temp);
-    printf("for delete: ");
+    printf("please enter valid number for delete: ");
     scanf("%d",&number);
-    temp = DeleteNode(temp,number);
+    temp=DeleteNode(temp,number);
     readNode(temp);
+
+
+    
+    //scanf("%d",&number);
+    //temp = DeleteNode(temp,number);
 
 }
 

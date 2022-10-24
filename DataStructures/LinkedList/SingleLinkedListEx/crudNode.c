@@ -86,7 +86,7 @@ int main(){
     root = addLastNode(root,r);
 
     readNode(root);
-    printf("please enter invalid number : ");
+    printf("please enter valid number : ");
     scanf("%d",&deleted);
     root = deleteNode(root,deleted);
     readNode(root);
