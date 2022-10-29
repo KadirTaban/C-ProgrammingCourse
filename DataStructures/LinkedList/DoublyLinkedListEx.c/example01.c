@@ -94,6 +94,8 @@ Node* DeleteNode(Node* head, int num){
     }
 
     return head;
+
+Node
    /* if (head == NULL)
         return head;
 
