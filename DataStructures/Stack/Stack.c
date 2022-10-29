@@ -1,88 +1,92 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#define STACK_SIZE 10
+#define STACK_SIZE 10 
 
-int count = 0;
-
-struct stack{
-    int items[STACK_SIZE];
-    int top;
+struct node{
+    int data;
+    struct node *next;
 };
-typedef struct stack stk;
+
+typedef struct{
+    int counter;
+    struct node* top;
+}stk;
 
 
-void createEmptyStack(stk *s) {
-    s->top = -1;
+void initialization(stk *stk){
+    stk -> counter = 0;
+    stk -> top = NULL;    
 }
 
-int isFull(stk *s) {
-    if(s->top == STACK_SIZE-1)
-        return 1;
-
-    else
-        return 0;
-}
-
-int isEmpty(stk *s){
-    if(s->top == -1)
-        return 1;
-
-    else
-        return 0;
-}
-
-void pop(stk *s) {
-  if (isEmpty(s)) {
-    printf("\n STACK EMPTY \n");
-  } else {
-    printf("Item popped= %d", s->items[s->top]);
-    s->top--;
-  }
-  count--;
-  printf("\n");
-}
-
-void push(stk *s, int newItem){
-    if(isFull(s)){
-        printf("Stack is full.");
-    } else {
-        s->top++ ;
-        s->items[s->top] = newItem;
+void push(stk *stk, int c){
+    if(stk->counter == STACK_SIZE){
+        printf("Stack is Full.");
+    }else {
+        struct node *temp = (struct node*)malloc(sizeof(struct node));
+        temp->data = c;
+        temp->next = stk->top;
+        stk->top = temp;
+        stk->counter++;
     }
-    count++;
 }
 
-void printStack(stk *s) {
-    printf("Stack: ");
-    for(int i = 0; i<count; i++) {
-        printf("%d ", s->items[i]);
+int pop(stk *stk){
+    if(stk->counter == 0 ){
+        printf("Stack is empty \n");
+        return 0;
+    }else{
+        int x = stk->top->data;
+        struct node *temp = stk->top->next;
+        free(temp);
+        stk->counter--;
+        return x;
     }
-    printf("\n ");
 }
 
-int main() {
-    int ch;
-    stk *s = (stk*)malloc(sizeof(stk));
-
-    createEmptyStack(s);
-
-    push(s, 1);
-    push(s, 2);
-    push(s, 3);
-    push(s, 4);
-    push(s, 5);
-    push(s, 6);
-    push(s, 7);
-    push(s, 8);
-    push(s, 9);
-    push(s, 10);
-    
-    printStack(s);
-
-    pop(s);
-    
-    printf("\n After popping out \n");
-
-    printStack(s);
+void peek(stk *stk){
+    if(stk-> counter == 0){
+        printf("Stack is empty \n");
+        
+    }else{
+        int x = stk->top->data;
+        printf("stack: %d",x);
+    }
 }
+
+int main(){
+    int choice,num,loop=1;
+
+    stk *stack = (stk*)malloc(sizeof(stk));
+
+    
+    while (loop)
+    {
+        printf("\n1 - initialization\n2 - push\n3 - pop\n");
+        printf("4 - peek\n0 - Exit\n");
+        scanf("%d",&choice);
+        switch (choice)
+        {
+        case 1:
+            initialization(stack);
+            break;
+        case 2:
+            printf("Number :");
+            scanf("%d", &num);
+            push(stack, num);
+            break;
+        case 3:
+            num = pop(stack);
+            printf("(pop)Element at top of the stack :%d\n", num);
+            break;
+        case 4:
+            peek(stack);
+            break;
+        case 0:
+            loop = 0;
+            break;
+        }
+    }
+    return 0;
+}
+
