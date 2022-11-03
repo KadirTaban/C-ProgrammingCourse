@@ -62,10 +62,10 @@ int main(){
                 break;
 
             case '}':
-                if(pop(&stk)=='(')
+                if(pop(&stk)=='{')
                     continue; 
                 else{
-                        printf("\n Error for ( or ) \n");
+                        printf("\n Error for { or } \n");
                         exit(1);
                     }
                 break;
@@ -79,7 +79,7 @@ int main(){
                     continue;
 
                 else{
-                    printf("\n Error for [] ! \n");
+                    printf("\n Error for [ or ] ! \n");
                     exit(1);
                 }
                 break;
