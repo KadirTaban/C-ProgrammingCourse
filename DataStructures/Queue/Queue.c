@@ -66,6 +66,7 @@ void dequeue(que *q){
         node *temp = q->front;
         int x = temp->data;
         q->front = temp->next;
+        printf("%d is leaving from queue.\n", x);
         free(temp);
         q->cnt--;
 
