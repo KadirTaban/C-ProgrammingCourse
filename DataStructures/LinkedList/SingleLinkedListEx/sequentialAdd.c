@@ -12,8 +12,8 @@ void bastir(node *r){
         r=r->next;
  }
 }
-void ekle(node *r, int x){
-    while(r->next!=NULL){
+void ekle(node *r, int x){//sona ekler
+    while(r->next!=NULL){//node'u sona götürür
         r = r -> next;
     }
     r->next = (node*)malloc(sizeof(node));

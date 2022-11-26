@@ -3,20 +3,20 @@
 
 #define STACK_SIZE 10 
 
-struct node{
+struct node{//linked list implementation
     int data;
     struct node *next;
 };
 
-typedef struct{
+typedef struct{//stack definiton
     int counter;
     struct node* top;
 }stk;
 
 
-void initialization(stk *stk){
-    stk -> counter = 0;
-    stk -> top = NULL;    
+void initialization(stk *stk){//to create stack.
+    stk -> counter = 0; 
+    stk -> top = NULL;
 }
 
 void push(stk *stk, int c){

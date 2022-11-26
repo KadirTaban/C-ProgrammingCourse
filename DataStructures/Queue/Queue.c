@@ -3,14 +3,14 @@
 #define QUEUE_SIZE 10
 
 
-struct node{
+struct node{//
     int data;
     struct node *next;
 };
 typedef struct node node;
 
 
-typedef struct{
+typedef struct{//
     int cnt;
     struct node *front;
     struct node *rear;
@@ -41,7 +41,7 @@ int isEmpty(que *q){
     }
 }
 
-void enqueue(que *q, int x){
+void enqueue(que *q, int x){    
     if (isFull(q)){
         printf("Queue is full");
     }else{
@@ -49,10 +49,10 @@ void enqueue(que *q, int x){
         temp->data = x;
         temp->next = NULL;
         if(isEmpty(q)){
-            q->front = q->rear = temp;
+            q->front = q->rear = temp;//first is temp last is temp
         }else{
-            q->rear->next= temp;
-            q->rear = temp;
+            q->rear->next= temp;// rear's next pointer keep temp
+            q->rear = temp;// new rear is temp
         }
         q->cnt++;
     }
@@ -63,12 +63,12 @@ void dequeue(que *q){
     if (isEmpty(q)){
         printf("Queue is empty");
     }else{
-        node *temp = q->front;
+        node *temp = q->front;//temp is new q->front
         int x = temp->data;
-        q->front = temp->next;
-        printf("%d is leaving from queue.\n", x);
-        free(temp);
-        q->cnt--;
+        q->front = temp->next;//q->front reach temp->next so, new front is [front-1]
+        printf("%d is leaving from queue.\n", x);// old front so temp is free.
+        free(temp);//and delete
+        q->cnt--;//queue size was decreased.
 
     }
 }
@@ -81,7 +81,7 @@ void display(node *head)
     else
     {
         printf("%d\n", head -> data);
-        display(head->next);
+        display(head->next);//recursive..
     }
 }
 

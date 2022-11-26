@@ -37,12 +37,12 @@
 *.x86_64
 *.hex
 
+
 # Debug files
 *.dSYM/
 *.su
 *.idb
 *.pdb
-
 # Kernel Module Compile Results
 *.mod*
 *.cmd

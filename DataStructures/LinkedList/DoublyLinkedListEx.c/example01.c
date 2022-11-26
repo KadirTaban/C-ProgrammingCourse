@@ -9,7 +9,7 @@ struct node{
 
 typedef struct node Node;
 
-void readNode(Node *head){
+void readNode(Node* head){
     while(head!=NULL){
         printf("%d ",head->data);
         head=head->next;

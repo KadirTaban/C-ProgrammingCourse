@@ -33,9 +33,9 @@ int isEmpty(stk *s){
 }
 
 void pop(stk *s) {
-  if (isEmpty(s)) {
+  if(isEmpty(s)) {
     printf("\n STACK EMPTY \n");
-  } else {
+  }else{
     printf("Item popped= %d", s->items[s->top]);
     s->top--;
   }
@@ -46,7 +46,7 @@ void pop(stk *s) {
 void push(stk *s, int newItem){
     if(isFull(s)){
         printf("Stack is full.");
-    } else {
+    }else{
         s->top++ ;
         s->items[s->top] = newItem;
     }

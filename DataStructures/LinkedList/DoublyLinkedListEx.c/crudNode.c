@@ -9,9 +9,9 @@ struct node{
 
 typedef struct node Node;
 
-Node* head = NULL;
+Node * head = NULL;
 
-Node * Create(int number){
+Node * Create(int number){// to create head node.
     
     Node* new_node = (Node*)malloc(sizeof(Node));
 
@@ -23,7 +23,7 @@ Node * Create(int number){
 }
 
 
-void InserttoHead(int number){
+void InserttoHead(int number){//
 
     Node* added_node = Create(number);
 

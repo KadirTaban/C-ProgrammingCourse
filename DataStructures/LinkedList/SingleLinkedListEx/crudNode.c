@@ -19,12 +19,12 @@ void readNode(node *r){
     }
 }
 
-node * addFrontNode(node *r, int key){
+node *addFrontNode(node *r, int key){
     node *temp;
-    temp = malloc(sizeof(node));
-    temp -> data = key;
-    temp -> next = r;
-    r = temp;
+    temp = malloc(sizeof(node)); //to create any new pointer
+    temp -> data = key; //and its data is key
+    temp -> next = r; //it is very essential, its next bounded head of linked.
+    r = temp; //now, temp already has head.
     return r;
 }
 
@@ -43,21 +43,21 @@ node * deleteNode(node * r, int data){
     node * temp;
     node * iter = r;
  
-        if(r->data == data){
+        if(r->data == data){//if we called head data.
             temp = r;
             r = r->next;
             free(temp);
             return r;
 
         }else{
-            while(iter->next != NULL && iter -> next ->data != data){
-            iter = iter ->next;
+            while(iter->next != NULL && iter -> next -> data != data){//while it is inside linkedlist and continue til iter->next->data = data
+            iter = iter -> next;
             }
             if(iter -> next == NULL){
                 printf("invalid number for delete. \n");
                 return r;
             }
-            temp = iter ->next;
+            temp = iter -> next;
             iter -> next = temp -> next;
             free(temp);
             return r;

@@ -9,15 +9,15 @@ struct n{
 
 typedef struct n node;
 
-void bastir(node *r){
+void bastir(node *r){//linkedlist halindeki pointerdaki dataları okuma
     while(r != NULL){
         printf("%d ",r->x);
-        r = r->next;
+        r = r->next;//bir sonraki pointera götürür.
     }
 }
 
-void ekle(node *r, int x){
-    while (r->next != NULL){
+void ekle(node *r, int x){// son pointera primitif olarak data girmek.
+    while (r->next != NULL){//taile gider.
         r = r->next;
     }
         r->next = (node*)malloc(sizeof(node));
@@ -33,7 +33,7 @@ int main(){
     root -> x = 500;
     
     int i = 0 ;
-    for(i=0; i<5; i++){
+    for(i=0; i<5; i++){//taile ekleyerek yeni taile kadar veri girer.
         ekle(root, i*10);
         
     }
