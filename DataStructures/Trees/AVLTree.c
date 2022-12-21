@@ -70,7 +70,6 @@ int getBalance(struct Node *N) {
 
 // Insert node
 struct Node *insertNode(struct Node *node, int key) {
-  // Find the correct position to insertNode the node and insertNode it
   if (node == NULL)
     return (newNode(key));
 
@@ -79,7 +78,6 @@ struct Node *insertNode(struct Node *node, int key) {
   else if (key > node->key)
     node->right = insertNode(node->right, key);
   else
-    return node;
 
   // Update the balance factor of each node and
   // Balance the tree

@@ -131,6 +131,23 @@ BinaryTree search_binary_tree(BinaryTree root, int x){
        
 }
 
+void mirror (BinaryTree root){
+    if(root == NULL){
+        return;
+    }
+    if(root->left == root->right){
+        return;      
+    }
+    struct node *temp;
+    temp = root->right;
+    root->right = root->left;
+    root->left = temp;
+    mirror(root->left);
+    mirror(root->right);
+    
+}
+
+
 int main(){
     BinaryTree myroot = NULL;
     int i = 0;
@@ -149,10 +166,7 @@ int main(){
     printf("\n ** %s ","<MAXDEPTH>!! **\n");
     printf("\n %d",maxDepth(myroot));
 
-    int deleteNode;
-    printf("\n number for delete: \n ");
-    scanf("%d",&deleteNode);
-    delete_node(myroot,deleteNode);
+    mirror(myroot);
 
     printf("\n ** %s ","INORDER!! **\n");
     inorder(myroot);
