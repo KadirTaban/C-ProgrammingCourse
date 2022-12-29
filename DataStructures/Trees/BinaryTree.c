@@ -149,7 +149,8 @@ void mirror (BinaryTree root){
 
 
 int main(){
-    BinaryTree myroot = NULL;
+    BinaryTree myroot = 
+    NULL;
     int i = 0;
     scanf("%d",&i);
     while (i!=-1)
