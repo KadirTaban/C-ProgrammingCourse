@@ -65,7 +65,14 @@ int dequeue(que *q){
         return x;
     }
 }
+void isOdd(que *q){
+    for(int i=0;i<q->cnt;i++){
+        if(q->data[i]%2 == 1){
+            printf("%d",q->data[i]);
+        }  
+    }
 
+}
 void display(que *q)
 {
     int i;
@@ -74,7 +81,7 @@ void display(que *q)
     }
     else{
         for (int i = q->front; i<=q->rear; i++){
-            printf("%d", q->data[i]);
+            printf("%5d", q->data[i]);
         }
     }
 } 
@@ -91,7 +98,7 @@ int main(){
     display(q);
     num = dequeue(q);
     printf("\nElement at front: %d\n", num);
-    display(q);
+    isOdd(q);
 
 
 

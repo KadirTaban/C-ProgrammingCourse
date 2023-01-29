@@ -116,10 +116,8 @@ int main(){
     insertMax(&p,5);
     insertMax(&p,18);
     insertMax(&p,21);
-    insertMin(&p,2);
+    insertMax(&p,2);
     print(&p);
      
-    deleteMax(&p);
-    print(&p);
 
 }
